@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.myapplication.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_addByPlantFragment"
+            app:destination="@id/addByPlantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.myapplication.SearchByMonthFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/search_by_month">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_recyclerPlant"
+            app:destination="@id/recyclerPlant" />
+    </fragment>
+    <fragment
+        android:id="@+id/addByPlantFragment"
+        android:name="com.example.myapplication.SearchByPlantFragment"
+        android:label="AddByPlantFragment" />
+    <fragment
+        android:id="@+id/recyclerPlant"
+        android:name="com.example.myapplication.RecyclerPlant"
+        android:label="RecyclerPlant" >
+        <action
+            android:id="@+id/action_recyclerPlant_to_infoPlant"
+            app:destination="@id/infoPlant" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoPlant"
+        android:name="com.example.myapplication.InfoPlant"
+        android:label="InfoPlant" >
+        <argument
+            android:name="plantIdArgument"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_infoPlant_to_recyclerCalendar"
+            app:destination="@id/recyclerCalendar" />
+    </fragment>
+    <fragment
+        android:id="@+id/recyclerCalendar"
+        android:name="com.example.myapplication.RecyclerCalendar"
+        android:label="RecyclerCalendar" >
+        <argument
+            android:name="calendarIdArgument"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_recyclerCalendar_to_infoCal"
+            app:destination="@id/infoCal" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoCal"
+        android:name="com.example.myapplication.InfoCal"
+        android:label="InfoCal" >
+        <argument android:name="infoCalArg" />
+    </fragment>
+</navigation>
